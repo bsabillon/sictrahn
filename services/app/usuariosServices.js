@@ -1,4 +1,4 @@
-const express = require("express");
+
 const database = require("../../configuration/database");
 
 var methods = {
@@ -7,7 +7,7 @@ var methods = {
         const queryString = "SELECT * FROM usuarios"
         database.query(queryString, (error, rows, fields)=>{
          if(error){
-            response.send("Error: "+ error)
+            response.send("Error: " + error)
             response.sendStatus(500)
             response.end()
             return
