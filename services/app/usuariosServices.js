@@ -1,4 +1,3 @@
-
 const database = require("../../configuration/database");
 
 var methods = {
