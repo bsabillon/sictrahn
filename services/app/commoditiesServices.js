@@ -14,7 +14,7 @@ var methods = {
         })
     },
 
-    obtenerCommoditiesPorId: function(request,response){
+    obtenerCommodityPorId: function(request,response){
         const idcommodity = request.params.idcommodity;
         const queryString = "SELECT * FROM commodity WHERE idcommodity =?"
         database.query(queryString, [idcommodity], (error, rows, fields)=>{
@@ -28,7 +28,7 @@ var methods = {
         })
     },
 
-    agregarCommodities: function(request, response){
+    agregarCommodity: function(request, response){
       
       const commodity_name = request.body.commodity_name;
       const commodity_idcommoditytipo = request.body.commodity_idcommoditytipo;
@@ -49,7 +49,7 @@ var methods = {
       })
     },
 
-    eliminarCommodities: function(request, response){
+    eliminarCommodity: function(request, response){
     const idcommodity = request.params.idcommodity;
     const queryString = "DELETE FROM commodity WHERE idcommodity = ?";
     database.query(queryString, [idcommodity], (error, rows, fields)=>{
