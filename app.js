@@ -23,6 +23,6 @@ database.connect((err) =>{
 })
 
 app.use('/usuario', require('./routes/usuarios'));
-//app.use('/commodity', require('./routes/commodities'));
+app.use('/commodity', require('./routes/commodities'));
 
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
