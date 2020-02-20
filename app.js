@@ -25,6 +25,7 @@ database.connect((err) =>{
 app.use('/usuario', require('./routes/usuarios'));
 app.use('/commodity', require('./routes/commodities'));
 app.use('/puerto', require('./routes/puertos'));
+app.use('/cotizaciones_enc', require('./routes/cotizaciones_enc'));
 
 
 
