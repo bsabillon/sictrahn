@@ -29,6 +29,21 @@ var methods = {
         })
     },
 
+    obtenerCotizaciones_encPorUsuarioId: function(request,response){
+        const idusuario = request.params.idusuario;
+        const queryString = "SELECT * FROM cotizaciones_enc WHERE cotizacion_idusuario =?"
+        database.query(queryString, [idusuario], (error, rows, fields)=>{
+         if(error){
+            response.send("Error: " + error)
+            response.sendStatus(500)
+            response.end()
+            return
+         }
+         response.json(rows)
+        })
+    },
+
+
     agregarCotizaciones_enc: function(request, response){
       
       const cotizacion_referencia = request.body.cotizacion_referencia;
