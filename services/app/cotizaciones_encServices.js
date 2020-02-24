@@ -29,10 +29,10 @@ var methods = {
         })
     },
 
-    obtenerCotizaciones_encPorUsuarioId: function(request,response){
-        const idusuario = request.params.idusuario;
-        const queryString = "SELECT * FROM cotizaciones_enc WHERE cotizacion_idusuario =?"
-        database.query(queryString, [idusuario], (error, rows, fields)=>{
+    obtenerCotizaciones_encPorClienteId: function(request,response){
+        const idcliente = request.params.idcliente;
+        const queryString = "SELECT cotizaciones_enc.cotizacion_referencia, cotizaciones_enc.cotizacion_vencimiento, clientes.cliente_nombre, clientes.cliente_rtn, clientes.cliente_telefono, clientes.cliente_nombrecomercial, asesores.asesor_nombre, asesores.asesor_telefono, asesores.asesor_email, asesores.asesor_skype, asesores.asesor_foto FROM cotizaciones_enc INNER JOIN clientes ON cotizaciones_enc.cotizacion_idcliente = clientes.idcliente INNER JOIN asesor_clientes ON clientes.idcliente = asesor_clientes.acliente_Idcliente INNER JOIN asesores ON asesor_clientes.acliente_idasesor = asesores.idasesor WHERE cotizacion_idcliente =?  "
+        database.query(queryString, [idcliente], (error, rows, fields)=>{
          if(error){
             response.send("Error: " + error)
             response.sendStatus(500)

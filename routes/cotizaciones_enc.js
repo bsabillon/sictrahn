@@ -4,7 +4,7 @@ const cotizaciones_enecServices = require('../services/app/cotizaciones_encServi
 
 router.get('/',cotizaciones_enecServices.obtenerCotizaciones_enc);
 router.get('/obtenerPorId/:idcotizacion?',cotizaciones_enecServices.obtenerCotizaciones_encPorId);
-router.get('/obtenerPorusuarioId/:idusuario?',cotizaciones_enecServices.obtenerCotizaciones_encPorUsuarioId);
+router.get('/obtenerPorClienteId/:idcliente?',cotizaciones_enecServices.obtenerCotizaciones_encPorClienteId);
 
 router.post('/agregar', cotizaciones_enecServices.agregarCotizaciones_enc);
 router.delete('/eliminar/:idcotizacion?', cotizaciones_enecServices.eliminarCotizaciones_enc);
