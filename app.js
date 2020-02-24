@@ -25,7 +25,7 @@ app.use('/usuario', require('./routes/usuarios'));
 app.use('/commodity', require('./routes/commodities'));
 app.use('/puerto', require('./routes/puertos'));
 app.use('/cotizaciones_enc', require('./routes/cotizaciones_enc'));
-
+app.use('/cotizaciones_det', require('./routes/cotizaciones_det'));
 
 
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
