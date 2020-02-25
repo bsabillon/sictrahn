@@ -16,7 +16,7 @@ var methods = {
 
     obtenerUsuarioPorLogin: function(request,response){
         const usuario_login = request.params.usuario_login;
-        const queryString = "SELECT * FROM usuarios WHERE usuario_login =?"
+        const queryString = "SELECT * FROM gprometeo_sictra.usuarios INNER JOIN clientes_usuarios ON usuarios.idusuario = clientes_usuarios.idusuario INNER JOIN clientes ON clientes_usuarios.idcliente = clientes.idcliente WHERE usuario_login = ?"
         database.query(queryString, [usuario_login], (error, rows, fields)=>{
          if(error){
             response.send("Error: " + error)
