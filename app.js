@@ -11,7 +11,7 @@ app.use(cors());
 
 app.get('/', (req,res)=> res.send('Success'));
 
-database.connect((err) =>{
+database.getConnection((err) =>{
     if(!err){
         console.log('The connection to the database has been established successfully.');
     }

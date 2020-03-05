@@ -1,11 +1,12 @@
 const mysql = require("mysql");
 
-var database = mysql.createConnection({
-    host: '51.68.203.83', 
-    user: 'gprometeo_sictra',
-    password: 'adminsictra',
-    database: 'gprometeo_sictra',
-    multipleStatements: true
+var database = mysql.createPool({
+    host: 'us-cdbr-iron-east-04.cleardb.net', 
+    user: 'b2f5ade50893bc',
+    password: 'd65d8fa0',
+    database: 'heroku_0c8724ebbc7aa98',
+    multipleStatements: true,
+    connectTimeout: 1000000
 })
 
 

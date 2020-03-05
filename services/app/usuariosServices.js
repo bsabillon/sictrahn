@@ -1,6 +1,8 @@
 const database = require("../../configuration/database");
 
 var methods = {
+
+
     obtenerUsuarios: function(request,response){
         const queryString = "SELECT * FROM usuarios"
         database.query(queryString, (error, rows, fields)=>{
@@ -11,12 +13,15 @@ var methods = {
             return
          }
          response.json(rows)
+         
         })
     },
 
+
+
     obtenerUsuarioPorLogin: function(request,response){
         const usuario_login = request.params.usuario_login;
-        const queryString = "SELECT * FROM gprometeo_sictra.usuarios INNER JOIN clientes_usuarios ON usuarios.idusuario = clientes_usuarios.idusuario INNER JOIN clientes ON clientes_usuarios.idcliente = clientes.idcliente WHERE usuario_login = ?"
+        const queryString = "SELECT * FROM usuarios INNER JOIN clientes_usuarios ON usuarios.idusuario = clientes_usuarios.idusuario INNER JOIN clientes ON clientes_usuarios.idcliente = clientes.idcliente WHERE usuario_login = ?"
         database.query(queryString, [usuario_login], (error, rows, fields)=>{
          if(error){
             response.send("Error: " + error)
@@ -67,7 +72,7 @@ var methods = {
         const usuario_login= request.params.usuario_login;
         const usuario_clave= request.params.usuario_clave;
 
-        const queryString = "SELECT * FROM gprometeo_sictra.usuarios INNER JOIN clientes_usuarios ON usuarios.idusuario = clientes_usuarios.idusuario INNER JOIN clientes ON clientes_usuarios.idcliente = clientes.idcliente WHERE usuario_login = ? AND usuario_clave=? ";
+        const queryString = "SELECT * FROM usuarios INNER JOIN clientes_usuarios ON usuarios.idusuario = clientes_usuarios.idusuario INNER JOIN clientes ON clientes_usuarios.idcliente = clientes.idcliente WHERE usuario_login = ? AND usuario_clave=? ";
         database.query(queryString, [usuario_login, usuario_clave], (error, rows, fields)=>{
             if(error){
                 response.send("Error: "+ error );
